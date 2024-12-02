@@ -34,5 +34,9 @@ return [
             'channel' => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+    'nyt' => [
+        "key" => env('NYT_API_KEY'),
+        "url" => env('NYT_URL')
+    ]
 
 ];

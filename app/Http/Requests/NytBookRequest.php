@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\Isbn;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NytBookRequest extends FormRequest
@@ -11,7 +12,7 @@ class NytBookRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,10 @@ class NytBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title'=>'string',
+            'author'=>'string',
+            'isbn.*'=>['string', new Isbn],
+            'offest' =>'integer'
         ];
     }
 }
