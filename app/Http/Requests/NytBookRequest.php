@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\Isbn;
+use App\Rules\MultipleOfTwenty;
 use Illuminate\Foundation\Http\FormRequest;
 
 class NytBookRequest extends FormRequest
@@ -26,7 +27,7 @@ class NytBookRequest extends FormRequest
             'title'=>'string',
             'author'=>'string',
             'isbn.*'=>['string', new Isbn],
-            'offest' =>'integer'
+            'offset' =>['integer', new MultipleOfTwenty]
         ];
     }
 }
